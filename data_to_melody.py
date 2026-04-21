@@ -68,7 +68,7 @@ def generate_melody_from_data(
         # Bass note every 4 bars for harmonic grounding
         if i % 4 == 0:
             bass_pitch = max(0, pitch - 12)
-            midi.addNote(track, channel, bass_pitch, time + i * 0.5, duration * 2, max(0, vel - 20))
+            midi.addNote(track, channel, bass_pitch, time + i * 0.5, duration * 2, max(1, vel - 20))
 
     with open(filename, "wb") as output_file:
         midi.writeFile(output_file)
