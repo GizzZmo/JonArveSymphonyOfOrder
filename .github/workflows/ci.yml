@@ -11,7 +11,7 @@ jobs:
         with:
           python-version: '3.11'
       - name: Install dependencies
-        run: pip install -r requirements.txt && pip install flake8 pytest flask
+        run: pip install -r requirements.txt
       - name: Lint
         run: flake8 --max-line-length=120 data_to_melody.py genre_fusion.py song_builder.py visualizer.py app.py
       - name: Import check
