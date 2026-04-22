@@ -1,1 +1,4 @@
 midiutil>=1.2.1
+flask>=3.0.0
+pytest>=8.0.0
+flake8>=7.0.0

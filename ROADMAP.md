@@ -37,26 +37,27 @@
 
 ---
 
-## 🔲 Phase 4 — Data Input & Batch Processing
+## ✅ Phase 4 — Data Input & Batch Processing (complete)
 
-- [ ] Accept CSV / JSON files as data source for `data_to_melody.py`
-- [ ] Batch mode: generate one MIDI per day in a date range
-- [ ] Integration with smart-meter export formats (Tibber, Home Assistant)
-
----
-
-## 🔲 Phase 5 — Visualization & Playback Helpers
-
-- [ ] ASCII piano-roll preview printed to the terminal
-- [ ] `--dry-run` flag (print note list, do not write file)
-- [ ] Optional FluidSynth playback hook after generation
+- [x] Accept CSV / JSON files as data source for `data_to_melody.py`
+- [x] Batch mode: generate one MIDI per day in a date range
+- [x] Integration with smart-meter export formats (Tibber, Home Assistant)
 
 ---
 
-## 🔲 Phase 6 — Community & Polish
+## ✅ Phase 5 — Visualization & Playback Helpers (complete)
 
-- [ ] Web form (Flask/FastAPI) to enter metrics and download MIDI
-- [ ] Unit test suite (`pytest`)
-- [ ] GitHub Actions CI (lint + import check)
-- [ ] Example MIDI files in `examples/`
-- [ ] Contribution guide (`CONTRIBUTING.md`)
+- [x] ASCII piano-roll preview printed to the terminal (`visualizer.py`)
+- [x] `--dry-run` flag (print note list, do not write file)
+- [x] Optional FluidSynth playback hook after generation (`--play`)
+
+---
+
+## ✅ Phase 6 — Community & Polish (complete)
+
+- [x] Web form (Flask) to enter metrics and download MIDI (`app.py`)
+- [x] Unit test suite (`pytest`) in `tests/`
+- [x] GitHub Actions CI (lint + import check + tests)
+- [x] Example MIDI commands in `examples/`
+- [x] Contribution guide (`CONTRIBUTING.md`)
+

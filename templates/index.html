@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JonArve Symphony of Order</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: #0d1117;
+            color: #c9d1d9;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        header h1 {
+            font-size: 2rem;
+            color: #4dd0a0;
+            letter-spacing: 0.04em;
+        }
+        header p {
+            color: #8b949e;
+            margin-top: 0.5rem;
+            font-size: 1rem;
+        }
+        .card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 2rem;
+            width: 100%;
+            max-width: 520px;
+        }
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        label {
+            display: block;
+            font-size: 0.875rem;
+            color: #8b949e;
+            margin-bottom: 0.35rem;
+        }
+        input[type="number"], select {
+            width: 100%;
+            padding: 0.55rem 0.75rem;
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            color: #c9d1d9;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+        input[type="number"]:focus, select:focus {
+            outline: none;
+            border-color: #4dd0a0;
+        }
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        button[type="submit"] {
+            width: 100%;
+            padding: 0.75rem;
+            background: #4dd0a0;
+            color: #0d1117;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 0.5rem;
+            transition: background 0.2s;
+        }
+        button[type="submit"]:hover { background: #38b889; }
+        footer {
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: #8b949e;
+        }
+        footer a { color: #4dd0a0; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎵 JonArve Symphony of Order</h1>
+        <p>Turn your daily environmental savings into generative music.</p>
+    </header>
+
+    <div class="card">
+        <form action="/generate" method="post">
+            <div class="row">
+                <div class="form-group">
+                    <label for="power_kwh">Power saved (kWh)</label>
+                    <input type="number" id="power_kwh" name="power_kwh"
+                           value="7.8" step="0.1" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="water_liters">Water saved (liters)</label>
+                    <input type="number" id="water_liters" name="water_liters"
+                           value="1850" step="1" min="0" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label for="scale">Scale</label>
+                    <select id="scale" name="scale">
+                        {% for s in scales %}
+                        <option value="{{ s }}">{{ s }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="genre">Genre</label>
+                    <select id="genre" name="genre">
+                        {% for g in genres %}
+                        <option value="{{ g }}">{{ g }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label for="tempo">Tempo (BPM)</label>
+                    <input type="number" id="tempo" name="tempo"
+                           value="88" min="40" max="240" required>
+                </div>
+                <div class="form-group">
+                    <label for="bars">Bars</label>
+                    <input type="number" id="bars" name="bars"
+                           value="16" min="4" max="128" required>
+                </div>
+            </div>
+
+            <button type="submit">🎼 Generate MIDI</button>
+        </form>
+    </div>
+
+    <footer>
+        <a href="https://github.com/GizzZmo/JonArveSymphonyOfOrder" target="_blank">
+            View on GitHub ↗
+        </a>
+    </footer>
+</body>
+</html>
